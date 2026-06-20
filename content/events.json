@@ -1,0 +1,36 @@
+{
+  "events": [
+    {
+      "day": "12",
+      "month": "JUL",
+      "title": "Mission Bay Beach Clean-Up",
+      "location": "Mission Bay Beach",
+      "time": "Sat 12 Jul · 9:00–11:30 AM",
+      "description": "Join the crew for a morning of sun, good company and a cleaner coastline. Gloves, bags and coffee provided."
+    },
+    {
+      "day": "19",
+      "month": "JUL",
+      "title": "Community Kitchen Volunteer Night",
+      "location": "City Mission, Auckland CBD",
+      "time": "Sat 19 Jul · 5:00–8:00 PM",
+      "description": "Help prepare and serve meals for whānau in need. A warm, hands-on night that makes an immediate impact."
+    },
+    {
+      "day": "02",
+      "month": "AUG",
+      "title": "Campus Tree Planting Day",
+      "location": "AUT North Campus",
+      "time": "Sun 2 Aug · 10:00 AM–1:00 PM",
+      "description": "Get your hands in the soil and help green our campus. All tools and a free SVA tee for every planter."
+    },
+    {
+      "day": "16",
+      "month": "AUG",
+      "title": "Winter Foodbank Drive",
+      "location": "WG Building Foyer",
+      "time": "Sat 16 Aug · 11:00 AM–3:00 PM",
+      "description": "Sort and pack donations for local foodbanks during the coldest months. Bring a friend and a tin to donate."
+    }
+  ]
+}

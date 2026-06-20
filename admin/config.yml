@@ -1,0 +1,148 @@
+# =============================================================================
+# SVA AUT — Decap CMS configuration
+# -----------------------------------------------------------------------------
+# Right now this is set up for LOCAL editing:
+#   1. From the project root run:  npx decap-server
+#   2. In a second terminal serve the site (e.g. npx serve  or  python3 -m http.server)
+#   3. Open  http://localhost:<port>/admin/
+#
+# `local_backend: true` makes the CMS talk to the local proxy above and write
+# straight to the files in this folder — no login, no internet needed.
+#
+# WHEN YOU GO LIVE: keep `local_backend: true` (it only activates on localhost,
+# so it won't affect the live site) and REPLACE the `backend` block below with
+# the one DecapBridge generates for your site. Full steps are in PUBLISH.md.
+# (Netlify Identity + Git Gateway is deprecated, so we use DecapBridge instead.)
+# =============================================================================
+
+local_backend: true
+
+# --- Local-dev backend (used by `npx decap-server`). ---
+# In production this gets swapped for the DecapBridge-generated block, which
+# looks roughly like:
+#   backend:
+#     name: git-gateway
+#     repo: your-org/sva-new-website     # your GitHub repo
+#     branch: main
+#     identity_url: https://...decapbridge.com/...   # provided by DecapBridge
+#     gateway_url:  https://...decapbridge.com/...   # provided by DecapBridge
+backend:
+  name: git-gateway
+  branch: main
+
+# Where uploaded images are stored (folder) and how they're referenced in content (public).
+# Kept relative so paths match the existing markup (e.g. media/product-hoodie.jpg).
+media_folder: "media"
+public_folder: "media"
+
+collections:
+  # ---------------------------------------------------------------------------
+  # EVENTS  ->  content/events.json  ->  { "events": [ ... ] }
+  # ---------------------------------------------------------------------------
+  - name: "events"
+    label: "Events"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "events"
+        label: "Upcoming events"
+        file: "content/events.json"
+        description: "The cards shown in the Events section. Add, remove or reorder items."
+        fields:
+          - label: "Events"
+            name: "events"
+            widget: "list"
+            label_singular: "Event"
+            summary: "{{fields.day}} {{fields.month}} — {{fields.title}}"
+            fields:
+              - { label: "Day", name: "day", widget: "string", hint: "Day number, e.g. 12" }
+              - { label: "Month", name: "month", widget: "string", hint: "Short month, e.g. JUL" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Date & time", name: "time", widget: "string", hint: "e.g. Sat 12 Jul · 9:00–11:30 AM" }
+              - { label: "Description", name: "description", widget: "text" }
+
+  # ---------------------------------------------------------------------------
+  # SHOP  ->  content/shop.json  ->  { "products": [ ... ] }
+  # ---------------------------------------------------------------------------
+  - name: "shop"
+    label: "Shop"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "products"
+        label: "Products"
+        file: "content/shop.json"
+        description: "The product cards in the Shop section."
+        fields:
+          - label: "Products"
+            name: "products"
+            widget: "list"
+            label_singular: "Product"
+            summary: "{{fields.name}} — ${{fields.price}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Image", name: "image", widget: "image", hint: "Square or 3:2 image works best" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Price (NZD)", name: "price", widget: "number", value_type: "int", min: 0 }
+              - { label: "Badge text", name: "badge", widget: "string", required: false, hint: "Leave blank for no badge" }
+              - label: "Badge style"
+                name: "badgeStyle"
+                widget: "select"
+                required: false
+                default: "default"
+                options:
+                  - { label: "Navy (default)", value: "default" }
+                  - { label: "Orange", value: "alt" }
+
+  # ---------------------------------------------------------------------------
+  # SITE SETTINGS  ->  content/settings.json
+  # ---------------------------------------------------------------------------
+  - name: "settings"
+    label: "Site settings"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "Site settings"
+        file: "content/settings.json"
+        description: "Hero text, impact stats, contact details and social links."
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Title — first part", name: "titleLead", widget: "string", hint: "Text before the highlighted word" }
+              - { label: "Title — highlighted word", name: "titleHighlight", widget: "string", hint: "Shown in orange" }
+              - { label: "Subtitle", name: "subtitle", widget: "text" }
+              - { label: "Primary button label", name: "primaryCta", widget: "string" }
+              - { label: "Secondary button label", name: "secondaryCta", widget: "string" }
+          - label: "Impact stats"
+            name: "stats"
+            widget: "list"
+            max: 3
+            label_singular: "Stat"
+            summary: "{{fields.value}} {{fields.label}}"
+            fields:
+              - { label: "Value", name: "value", widget: "string", hint: "e.g. 1,200+" }
+              - { label: "Label", name: "label", widget: "string" }
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string", hint: "Display format, e.g. +64 9 921 9999" }
+              - { label: "Address line 1", name: "addressLine1", widget: "string" }
+              - { label: "Address line 2", name: "addressLine2", widget: "string" }
+          - label: "Social links"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Instagram URL", name: "instagram", widget: "string", required: false }
+              - { label: "Facebook URL", name: "facebook", widget: "string", required: false }
+              - { label: "TikTok URL", name: "tiktok", widget: "string", required: false }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string", required: false }

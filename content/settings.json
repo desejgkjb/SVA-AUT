@@ -1,0 +1,27 @@
+{
+  "hero": {
+    "eyebrow": "Student Volunteer Army · AUT",
+    "titleLead": "Welcome to",
+    "titleHighlight": "SVA AUT",
+    "subtitle": "We're a community of AUT students turning kindness into action — volunteering, connecting, and making a real difference across Tāmaki Makaurau. Show up, give back, and build friendships that last beyond graduation.",
+    "primaryCta": "Join SVA AUT — $20/year",
+    "secondaryCta": "View Upcoming Events"
+  },
+  "stats": [
+    { "value": "1,200+", "label": "Active members" },
+    { "value": "50+", "label": "Events a year" },
+    { "value": "15k", "label": "Volunteer hours" }
+  ],
+  "contact": {
+    "email": "hello@svaaut.org.nz",
+    "phone": "+64 9 921 9999",
+    "addressLine1": "AUT City Campus",
+    "addressLine2": "55 Wellesley St E, Auckland"
+  },
+  "social": {
+    "instagram": "#",
+    "facebook": "#",
+    "tiktok": "#",
+    "linkedin": "#"
+  }
+}

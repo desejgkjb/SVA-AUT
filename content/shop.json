@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "name": "SVA Hoodie",
+      "image": "media/product-hoodie.jpg",
+      "description": "Heavyweight organic-cotton hoodie with embroidered SVA crest. Cosy for every clean-up.",
+      "price": 65,
+      "badge": "Bestseller",
+      "badgeStyle": "default"
+    },
+    {
+      "name": "SVA T-Shirt",
+      "image": "media/product-tshirt.jpg",
+      "description": "Soft, breathable tee in signature orange. Your go-to for events and everyday wear.",
+      "price": 30,
+      "badge": "",
+      "badgeStyle": "default"
+    },
+    {
+      "name": "SVA Tote Bag",
+      "image": "media/product-tote.jpg",
+      "description": "Sturdy canvas tote for groceries, books or beach finds. Plastic-free, of course.",
+      "price": 18,
+      "badge": "Eco",
+      "badgeStyle": "alt"
+    },
+    {
+      "name": "SVA Sticker Pack",
+      "image": "media/product-stickers.jpg",
+      "description": "Set of 6 weatherproof vinyl stickers. Deck out your laptop, drink bottle and more.",
+      "price": 8,
+      "badge": "",
+      "badgeStyle": "default"
+    }
+  ]
+}

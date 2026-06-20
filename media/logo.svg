@@ -1,0 +1,14 @@
+<!-- SVA AUT logo (placeholder/editable). Swap this file or edit colors/text below. -->
+<svg width="200" height="56" viewBox="0 0 200 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SVA AUT">
+  <defs>
+    <linearGradient id="svaGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FE5100"/>
+      <stop offset="100%" stop-color="#FF7A3C"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="6" width="44" height="44" rx="13" fill="url(#svaGrad)"/>
+  <!-- simple hands/heart mark -->
+  <path d="M23 41c-7-4.6-11-8.6-11-13.4 0-3 2.3-5.2 5.1-5.2 1.9 0 3.6 1 4.6 2.6.4.6 1.2.6 1.6 0 1-1.6 2.7-2.6 4.6-2.6 2.8 0 5.1 2.2 5.1 5.2C34 32.4 30 36.4 23 41z" fill="#fff"/>
+  <text x="54" y="27" font-family="Poppins,Arial,sans-serif" font-size="20" font-weight="800" fill="#211D51">SVA</text>
+  <text x="54" y="45" font-family="Poppins,Arial,sans-serif" font-size="13" font-weight="600" letter-spacing="3" fill="#211D51">AUT</text>
+</svg>

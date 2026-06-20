@@ -1,0 +1,13 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+
+# Node / tooling
+node_modules/
+*.log
+npm-debug.log*
+
+# Local env + Netlify
+.env
+.env.*
+.netlify/

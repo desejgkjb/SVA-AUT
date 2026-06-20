@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SVA AUT — Student Volunteer Army</title>
+  <meta name="description" content="SVA AUT — the Student Volunteer Army at AUT. Join a community of students giving back. Events, gear, and membership for $20/year." />
+
+  <!-- Favicon (edit media/favicon.svg to rebrand) -->
+  <link rel="icon" type="image/svg+xml" href="media/favicon.svg" />
+
+  <!-- Fonts: Poppins (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================= -->
+  <!-- NAVBAR (glassmorphism, sticky)                                -->
+  <!-- ============================================================= -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#home" class="nav__logo" aria-label="SVA AUT home">
+        <img src="media/logo.svg" alt="SVA AUT" width="150" height="42" />
+      </a>
+
+      <nav class="nav__links" id="navLinks" aria-label="Primary">
+        <a href="#home" class="nav__link">Home</a>
+        <a href="#events" class="nav__link">Events</a>
+        <a href="#shop" class="nav__link">Shop</a>
+        <a href="#membership" class="nav__link">Membership</a>
+        <a href="#join" class="btn btn--primary btn--sm nav__cta" data-open-membership>Join — $20/yr</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========================================================================= -->
+    <!-- 1) HERO SECTION                                                            -->
+    <!--    Background swap: change "bg-mode-image" -> "bg-mode-video" on <section> -->
+    <!--    Image file: media/hero.jpg   |   Video file: media/hero.mp4            -->
+    <!-- ========================================================================= -->
+    <section id="home" class="section section--media hero bg-mode-image">
+      <!-- ---- BACKGROUND MEDIA (do not delete the overlay) ---- -->
+      <div class="bg-media">
+        <!-- IMAGE layer: replace media/hero.jpg with your own 1920x1080 image -->
+        <img class="bg-image" src="media/hero.jpg" alt="" aria-hidden="true" />
+        <!-- VIDEO layer: replace media/hero.mp4 with your own loop. Shown only in bg-mode-video -->
+        <video class="bg-video" autoplay muted loop playsinline poster="media/hero.jpg">
+          <source src="media/hero.mp4" type="video/mp4" />
+        </video>
+        <!-- Dark overlay keeps text readable over any media -->
+        <div class="bg-overlay bg-overlay--hero"></div>
+      </div>
+
+      <!-- ---- HERO CONTENT ---- -->
+      <div class="container hero__content reveal">
+        <span class="eyebrow">Student Volunteer Army · AUT</span>
+        <h1 class="hero__title">Welcome to <span class="text-grad">SVA&nbsp;AUT</span></h1>
+        <p class="hero__subtitle">
+          We're a community of AUT students turning kindness into action — volunteering,
+          connecting, and making a real difference across Tāmaki Makaurau. Show up, give back,
+          and build friendships that last beyond graduation.
+        </p>
+        <div class="hero__actions">
+          <a href="#join" class="btn btn--primary btn--lg" data-open-membership>Join SVA AUT — $20/year</a>
+          <a href="#events" class="btn btn--ghost btn--lg">View Upcoming Events</a>
+        </div>
+        <div class="hero__stats">
+          <div class="stat"><strong>1,200+</strong><span>Active members</span></div>
+          <div class="stat"><strong>50+</strong><span>Events a year</span></div>
+          <div class="stat"><strong>15k</strong><span>Volunteer hours</span></div>
+        </div>
+      </div>
+
+      <a href="#events" class="scroll-cue" aria-label="Scroll to events">
+        <span></span>
+      </a>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 2) EVENTS SECTION                                                          -->
+    <!--    Background swap: "bg-mode-image" <-> "bg-mode-video"                    -->
+    <!--    Image: media/events.jpg   |   Video: media/events.mp4                  -->
+    <!-- ========================================================================= -->
+    <section id="events" class="section events">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="eyebrow">What's on</span>
+          <h2 class="section__title">Upcoming Events</h2>
+          <p class="section__lead">From beach clean-ups to community kitchens — find your next way to get involved. Spots fill fast, so grab yours.</p>
+        </header>
+
+        <!-- EVENT CARDS — managed in the CMS (content/events.json). The cards
+             below are a fallback; main.js replaces them when the site is served
+             over http (e.g. via a local server). -->
+        <div class="events__grid" id="eventsGrid">
+
+          <!-- Event card -->
+          <article class="event-card reveal">
+            <div class="event-card__date"><span class="day">12</span><span class="mon">JUL</span></div>
+            <div class="event-card__body">
+              <h3 class="event-card__title">Mission Bay Beach Clean-Up</h3>
+              <ul class="event-card__meta">
+                <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg> Mission Bay Beach</li>
+                <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 11h-4V7h2v4h2Z"/></svg> Sat 12 Jul · 9:00–11:30 AM</li>
+              </ul>
+              <p class="event-card__desc">Join the crew for a morning of sun, good company and a cleaner coastline. Gloves, bags and coffee provided.</p>
+              <button class="btn btn--primary btn--block" data-signup="Mission Bay Beach Clean-Up">Sign Up</button>
+            </div>
+          </article>
+
+          <!-- Event card -->
+          <article class="event-card reveal">
+            <div class="event-card__date"><span class="day">19</span><span class="mon">JUL</span></div>
+            <div class="event-card__body">
+              <h3 class="event-card__title">Community Kitchen Volunteer Night</h3>
+              <ul class="event-card__meta">
+                <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg> City Mission, Auckland CBD</li>
+                <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 11h-4V7h2v4h2Z"/></svg> Sat 19 Jul · 5:00–8:00 PM</li>
+              </ul>
+              <p class="event-card__desc">Help prepare and serve meals for whānau in need. A warm, hands-on night that makes an immediate impact.</p>
+              <button class="btn btn--primary btn--block" data-signup="Community Kitchen Volunteer Night">Sign Up</button>
+            </div>
+          </article>
+
+          <!-- Event card -->
+          <article class="event-card reveal">
+            <div class="event-card__date"><span class="day">02</span><span class="mon">AUG</span></div>
+            <div class="event-card__body">
+              <h3 class="event-card__title">Campus Tree Planting Day</h3>
+              <ul class="event-card__meta">
+                <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg> AUT North Campus</li>
+                <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 11h-4V7h2v4h2Z"/></svg> Sun 2 Aug · 10:00 AM–1:00 PM</li>
+              </ul>
+              <p class="event-card__desc">Get your hands in the soil and help green our campus. All tools and a free SVA tee for every planter.</p>
+              <button class="btn btn--primary btn--block" data-signup="Campus Tree Planting Day">Sign Up</button>
+            </div>
+          </article>
+
+          <!-- Event card -->
+          <article class="event-card reveal">
+            <div class="event-card__date"><span class="day">16</span><span class="mon">AUG</span></div>
+            <div class="event-card__body">
+              <h3 class="event-card__title">Winter Foodbank Drive</h3>
+              <ul class="event-card__meta">
+                <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z"/></svg> WG Building Foyer</li>
+                <li><svg class="ic" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 11h-4V7h2v4h2Z"/></svg> Sat 16 Aug · 11:00 AM–3:00 PM</li>
+              </ul>
+              <p class="event-card__desc">Sort and pack donations for local foodbanks during the coldest months. Bring a friend and a tin to donate.</p>
+              <button class="btn btn--primary btn--block" data-signup="Winter Foodbank Drive">Sign Up</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 3) SHOP SECTION                                                            -->
+    <!--    Background swap: "bg-mode-image" <-> "bg-mode-video"                    -->
+    <!--    Image: media/shop.jpg   |   Video: media/shop.mp4                      -->
+    <!-- ========================================================================= -->
+    <section id="shop" class="section shop">
+      <div class="container">
+        <header class="section__head reveal">
+          <span class="eyebrow">SVA Store</span>
+          <h2 class="section__title">Wear the Mission</h2>
+          <p class="section__lead">Premium SVA gear that funds our volunteering. Members get an exclusive discount at checkout.</p>
+        </header>
+
+        <!-- PRODUCT CARDS — managed in the CMS (content/shop.json). The cards
+             below are a fallback; main.js replaces them when served over http. -->
+        <div class="shop__grid" id="shopGrid">
+
+          <article class="product-card reveal">
+            <div class="product-card__media">
+              <img src="media/product-hoodie.jpg" alt="SVA Hoodie" loading="lazy" />
+              <span class="product-card__badge">Bestseller</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">SVA Hoodie</h3>
+              <p class="product-card__desc">Heavyweight organic-cotton hoodie with embroidered SVA crest. Cosy for every clean-up.</p>
+              <div class="product-card__foot">
+                <span class="price">$65</span>
+                <button class="btn btn--primary btn--sm" data-buy="SVA Hoodie">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card__media">
+              <img src="media/product-tshirt.jpg" alt="SVA T-Shirt" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">SVA T-Shirt</h3>
+              <p class="product-card__desc">Soft, breathable tee in signature orange. Your go-to for events and everyday wear.</p>
+              <div class="product-card__foot">
+                <span class="price">$30</span>
+                <button class="btn btn--primary btn--sm" data-buy="SVA T-Shirt">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card__media">
+              <img src="media/product-tote.jpg" alt="SVA Tote Bag" loading="lazy" />
+              <span class="product-card__badge product-card__badge--alt">Eco</span>
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">SVA Tote Bag</h3>
+              <p class="product-card__desc">Sturdy canvas tote for groceries, books or beach finds. Plastic-free, of course.</p>
+              <div class="product-card__foot">
+                <span class="price">$18</span>
+                <button class="btn btn--primary btn--sm" data-buy="SVA Tote Bag">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card reveal">
+            <div class="product-card__media">
+              <img src="media/product-stickers.jpg" alt="SVA Sticker Pack" loading="lazy" />
+            </div>
+            <div class="product-card__body">
+              <h3 class="product-card__name">SVA Sticker Pack</h3>
+              <p class="product-card__desc">Set of 6 weatherproof vinyl stickers. Deck out your laptop, drink bottle and more.</p>
+              <div class="product-card__foot">
+                <span class="price">$8</span>
+                <button class="btn btn--primary btn--sm" data-buy="SVA Sticker Pack">Buy Now</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========================================================================= -->
+    <!-- 4) MEMBERSHIP SECTION                                                      -->
+    <!--    Background swap: "bg-mode-image" <-> "bg-mode-video"                    -->
+    <!--    Image: media/membership.jpg   |   Video: media/membership.mp4         -->
+    <!-- ========================================================================= -->
+    <section id="membership" class="section section--media membership bg-mode-image">
+      <div class="bg-media">
+        <img class="bg-image" src="media/membership.jpg" alt="" aria-hidden="true" />
+        <video class="bg-video" autoplay muted loop playsinline poster="media/membership.jpg">
+          <source src="media/membership.mp4" type="video/mp4" />
+        </video>
+        <div class="bg-overlay bg-overlay--band"></div>
+      </div>
+
+      <div class="container membership__grid" id="join">
+        <div class="membership__pitch reveal">
+          <span class="eyebrow eyebrow--light">Become a member</span>
+          <h2 class="membership__title">Become an SVA AUT Member</h2>
+          <p class="membership__lead">One small fee. A whole year of community, purpose and unforgettable experiences.</p>
+          <div class="price-tag">
+            <span class="price-tag__amount">$20</span>
+            <span class="price-tag__per">per year</span>
+          </div>
+          <ul class="benefits">
+            <li><span class="benefits__ic">✓</span> Exclusive members-only events</li>
+            <li><span class="benefits__ic">✓</span> Priority registration for every event</li>
+            <li><span class="benefits__ic">✓</span> Discounts on all SVA merchandise</li>
+            <li><span class="benefits__ic">✓</span> Leadership & volunteer-lead opportunities</li>
+            <li><span class="benefits__ic">✓</span> A genuine, welcoming community</li>
+          </ul>
+        </div>
+
+        <!-- MEMBERSHIP FORM (validates + shows thank-you message; wire to a backend later) -->
+        <div class="membership__card reveal">
+          <h3 class="form__title">Join Now</h3>
+          <p class="form__sub">Takes less than a minute.</p>
+          <form id="membershipForm" novalidate>
+            <div class="field">
+              <label for="m-name">Full Name</label>
+              <input type="text" id="m-name" name="fullName" autocomplete="name" required placeholder="Jordan Smith" />
+              <small class="field__error" data-error></small>
+            </div>
+            <div class="field">
+              <label for="m-email">Student Email</label>
+              <input type="email" id="m-email" name="studentEmail" autocomplete="email" required placeholder="jordan@autuni.ac.nz" />
+              <small class="field__error" data-error></small>
+            </div>
+            <div class="field">
+              <label for="m-id">Student ID</label>
+              <input type="text" id="m-id" name="studentId" required placeholder="e.g. 12345678" />
+              <small class="field__error" data-error></small>
+            </div>
+            <div class="field">
+              <label for="m-phone">Phone Number</label>
+              <input type="tel" id="m-phone" name="phone" autocomplete="tel" required placeholder="021 234 5678" />
+              <small class="field__error" data-error></small>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block btn--lg">Join SVA AUT — $20/year</button>
+            <p class="form__fineprint">By joining you agree to receive SVA AUT updates. You can opt out anytime.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================= -->
+  <!-- 5) FOOTER                                                     -->
+  <!-- ============================================================= -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <img src="media/logo.svg" alt="SVA AUT" width="160" height="45" class="footer__logo" />
+        <p>The Student Volunteer Army at Auckland University of Technology. Students helping people, one act of kindness at a time.</p>
+        <div class="footer__social" aria-label="Social media">
+          <a href="#" aria-label="Instagram" class="social"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2Zm0 7.9A3.1 3.1 0 1 1 15.1 12 3.1 3.1 0 0 1 12 15.1Zm4.9-8.1a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1ZM20 6.9a5.5 5.5 0 0 0-1.5-3.9A5.6 5.6 0 0 0 14.6 1.5C13.1 1.4 8.9 1.4 7.4 1.5A5.6 5.6 0 0 0 3.5 3a5.5 5.5 0 0 0-1.5 3.9c-.1 1.5-.1 5.7 0 7.2A5.5 5.5 0 0 0 3.5 18a5.6 5.6 0 0 0 3.9 1.5c1.5.1 5.7.1 7.2 0A5.6 5.6 0 0 0 18.5 18 5.5 5.5 0 0 0 20 14.1c.1-1.5.1-5.7 0-7.2Zm-2 8.8a3.1 3.1 0 0 1-1.8 1.8c-1.2.5-4.1.4-5.4.4s-4.2.1-5.4-.4a3.1 3.1 0 0 1-1.8-1.8c-.5-1.2-.4-4.1-.4-5.4s-.1-4.2.4-5.4A3.1 3.1 0 0 1 6.6 4.3c1.2-.5 4.1-.4 5.4-.4s4.2-.1 5.4.4a3.1 3.1 0 0 1 1.8 1.8c.5 1.2.4 4.1.4 5.4s.1 4.2-.4 5.4Z"/></svg></a>
+          <a href="#" aria-label="Facebook" class="social"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9a15.5 15.5 0 0 1 2.2.2v2.5h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg></a>
+          <a href="#" aria-label="TikTok" class="social"><svg viewBox="0 0 24 24"><path d="M16.5 3a4.9 4.9 0 0 0 4.5 4.4v3a8 8 0 0 1-4.5-1.4v6.3A6.3 6.3 0 1 1 10 9.1v3.1a3.2 3.2 0 1 0 2.3 3V3Z"/></svg></a>
+          <a href="#" aria-label="LinkedIn" class="social"><svg viewBox="0 0 24 24"><path d="M4.9 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM3.2 9h3.4v11H3.2Zm5.6 0h3.3v1.5h.05a3.6 3.6 0 0 1 3.25-1.8c3.5 0 4.15 2.3 4.15 5.3V20h-3.4v-4.7c0-1.1 0-2.6-1.6-2.6s-1.8 1.2-1.8 2.5V20H8.8Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#shop">Shop</a></li>
+          <li><a href="#membership">Membership</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="#join" data-open-membership>Become a member</a></li>
+          <li><a href="#events">Volunteer at an event</a></li>
+          <li><a href="#">Lead a project</a></li>
+          <li><a href="#">Partner with us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul class="footer__contact">
+          <li><a href="mailto:hello@svaaut.org.nz" id="contactEmail">hello@svaaut.org.nz</a></li>
+          <li><a href="tel:+6499219999" id="contactPhone">+64 9 921 9999</a></li>
+          <li id="contactAddress">AUT City Campus<br/>55 Wellesley St E, Auckland</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bar">
+      <div class="container footer__bar-inner">
+        <p>© <span id="year"></span> SVA AUT — Student Volunteer Army. All rights reserved.</p>
+        <p class="footer__legal"><a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================= -->
+  <!-- MODAL: Event Sign-Up                                          -->
+  <!-- ============================================================= -->
+  <div class="modal" id="eventModal" aria-hidden="true">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog glass" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
+      <button class="modal__close" data-close aria-label="Close">&times;</button>
+
+      <!-- Form view -->
+      <div data-modal-view="form">
+        <span class="eyebrow">Event registration</span>
+        <h3 class="modal__title" id="eventModalTitle">Sign up for an event</h3>
+        <p class="modal__sub" id="eventModalEventName">—</p>
+        <form id="eventForm" novalidate>
+          <div class="field">
+            <label for="e-name">Full Name</label>
+            <input type="text" id="e-name" name="fullName" autocomplete="name" required placeholder="Jordan Smith" />
+            <small class="field__error" data-error></small>
+          </div>
+          <div class="field">
+            <label for="e-email">Student Email</label>
+            <input type="email" id="e-email" name="studentEmail" autocomplete="email" required placeholder="jordan@autuni.ac.nz" />
+            <small class="field__error" data-error></small>
+          </div>
+          <div class="field">
+            <label for="e-id">Student ID</label>
+            <input type="text" id="e-id" name="studentId" required placeholder="e.g. 12345678" />
+            <small class="field__error" data-error></small>
+          </div>
+          <div class="field">
+            <label for="e-event">Event</label>
+            <select id="e-event" name="event" required>
+              <option value="" disabled selected>Select an event…</option>
+              <option>Mission Bay Beach Clean-Up</option>
+              <option>Community Kitchen Volunteer Night</option>
+              <option>Campus Tree Planting Day</option>
+              <option>Winter Foodbank Drive</option>
+            </select>
+            <small class="field__error" data-error></small>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block btn--lg">Confirm Sign-Up</button>
+        </form>
+      </div>
+
+      <!-- Success view -->
+      <div data-modal-view="success" hidden>
+        <div class="success">
+          <div class="success__check" aria-hidden="true">✓</div>
+          <h3 class="modal__title">You're in! 🎉</h3>
+          <p class="modal__sub" id="eventSuccessMsg">We've saved your spot. Check your student email for confirmation details.</p>
+          <button class="btn btn--primary btn--lg" data-close>Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================= -->
+  <!-- MODAL: Membership (opened by nav/hero "Join" buttons)         -->
+  <!-- ============================================================= -->
+  <div class="modal" id="membershipModal" aria-hidden="true">
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog glass" role="dialog" aria-modal="true" aria-labelledby="memModalTitle">
+      <button class="modal__close" data-close aria-label="Close">&times;</button>
+
+      <div data-modal-view="form">
+        <span class="eyebrow">Membership · $20 / year</span>
+        <h3 class="modal__title" id="memModalTitle">Join SVA AUT</h3>
+        <p class="modal__sub">Become a member and unlock the full SVA experience.</p>
+        <form id="membershipModalForm" novalidate>
+          <div class="field">
+            <label for="mm-name">Full Name</label>
+            <input type="text" id="mm-name" name="fullName" autocomplete="name" required placeholder="Jordan Smith" />
+            <small class="field__error" data-error></small>
+          </div>
+          <div class="field">
+            <label for="mm-email">Student Email</label>
+            <input type="email" id="mm-email" name="studentEmail" autocomplete="email" required placeholder="jordan@autuni.ac.nz" />
+            <small class="field__error" data-error></small>
+          </div>
+          <div class="field">
+            <label for="mm-id">Student ID</label>
+            <input type="text" id="mm-id" name="studentId" required placeholder="e.g. 12345678" />
+            <small class="field__error" data-error></small>
+          </div>
+          <div class="field">
+            <label for="mm-phone">Phone Number</label>
+            <input type="tel" id="mm-phone" name="phone" autocomplete="tel" required placeholder="021 234 5678" />
+            <small class="field__error" data-error></small>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block btn--lg">Join Now — $20/year</button>
+        </form>
+      </div>
+
+      <div data-modal-view="success" hidden>
+        <div class="success">
+          <div class="success__check" aria-hidden="true">✓</div>
+          <h3 class="modal__title">Welcome to the Army! 🧡</h3>
+          <p class="modal__sub">Thanks for joining SVA AUT. We've emailed your membership details and next steps — see you at the next event!</p>
+          <button class="btn btn--primary btn--lg" data-close>Done</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Toast (small confirmation, e.g. for shop) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Site script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
