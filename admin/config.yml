@@ -1,34 +1,51 @@
 # =============================================================================
 # SVA AUT — Decap CMS configuration
 # -----------------------------------------------------------------------------
-# Right now this is set up for LOCAL editing:
+# LOCAL editing still works the same way:
 #   1. From the project root run:  npx decap-server
 #   2. In a second terminal serve the site (e.g. npx serve  or  python3 -m http.server)
 #   3. Open  http://localhost:<port>/admin/
 #
-# `local_backend: true` makes the CMS talk to the local proxy above and write
-# straight to the files in this folder — no login, no internet needed.
+# `local_backend: true` makes the CMS talk to the local proxy above when run on
+# localhost — no login, no internet needed. It does NOT affect the live site.
 #
-# WHEN YOU GO LIVE: keep `local_backend: true` (it only activates on localhost,
-# so it won't affect the live site) and REPLACE the `backend` block below with
-# the one DecapBridge generates for your site. Full steps are in PUBLISH.md.
-# (Netlify Identity + Git Gateway is deprecated, so we use DecapBridge instead.)
+# LIVE editing (https://sva-aut.netlify.app/admin/) uses DecapBridge for login,
+# via the `backend:` block below (generated from the DecapBridge dashboard).
 # =============================================================================
 
 local_backend: true
 
-# --- Local-dev backend (used by `npx decap-server`). ---
-# In production this gets swapped for the DecapBridge-generated block, which
-# looks roughly like:
-#   backend:
-#     name: git-gateway
-#     repo: your-org/sva-new-website     # your GitHub repo
-#     branch: main
-#     identity_url: https://...decapbridge.com/...   # provided by DecapBridge
-#     gateway_url:  https://...decapbridge.com/...   # provided by DecapBridge
+# Use DecapBridge PKCE auth (required)
 backend:
   name: git-gateway
+  repo: desejgkjb/SVA-AUT
   branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/30f6659b-a024-4dd1-ab94-b974c668ebf2/pkce
+  auth_token_endpoint: /sites/30f6659b-a024-4dd1-ab94-b974c668ebf2/token
+  gateway_url: https://gateway.decapbridge.com
+  # See who did what (optional)
+  commit_messages:
+    create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+# Enable PKCE fields (optional, recommended)
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+# Better Decap + Bridge logo (optional)
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+
+# Add site links in Decap CMS (optional)
+site_url: https://sva-aut.netlify.app
 
 # Where uploaded images are stored (folder) and how they're referenced in content (public).
 # Kept relative so paths match the existing markup (e.g. media/product-hoodie.jpg).
